@@ -545,4 +545,15 @@ class Cluster
     {
         return Request::Request("/cluster/sdn/vnets", $data, "POST");
     }
+
+    /**
+     * @param $vnetName
+     * @param $data
+     * @return mixed
+     * @throws ProxmoxException
+     */
+    public function createSubnet($vnetName, $data = array())
+    {
+        return Request::Request("/cluster/sdn/vnets/$vnetName/subnets", $data, "POST");
+    }
 }
