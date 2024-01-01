@@ -527,13 +527,22 @@ class Cluster
     }
 
     /**
-     * Set subscription key.
-     * PUT /api2/json/nodes/{node}/subscription
-     * @param string $node The cluster node name.
-     * @param array $data
+     * @param $data
+     * @return mixed
+     * @throws ProxmoxException
      */
     public function createZone($data = array())
     {
         return Request::Request("/cluster/sdn/zones", $data, "POST");
+    }
+
+    /**
+     * @param $data
+     * @return mixed
+     * @throws ProxmoxException
+     */
+    public function createVnet($data = array())
+    {
+        return Request::Request("/cluster/sdn/vnets", $data, "POST");
     }
 }
