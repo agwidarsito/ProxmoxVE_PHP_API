@@ -556,4 +556,13 @@ class Cluster
     {
         return Request::Request("/cluster/sdn/vnets/$vnetName/subnets", $data, "POST");
     }
+
+    /**
+     * @return mixed
+     * @throws ProxmoxException
+     */
+    public function applyPendingSdnChanges()
+    {
+        return Request::Request("/cluster/sdn", [], "PUT");
+    }
 }
